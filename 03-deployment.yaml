@@ -23,10 +23,15 @@ spec:
             - name: POSTGRES_USER
               value: testuser
             - name: POSTGRES_PASSWORD
-              value: testpassword
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: PGDATA
+              value: "/var/lib/postgresql/data/pgdata"
           volumeMounts:
             - name: pg-persistent-storage
-              mountPath: /var/lib/postgresql/data
+              mountPath: "/var/lib/postgresql/data"
       volumes:
         - name: pg-persistent-storage
           persistentVolumeClaim:
