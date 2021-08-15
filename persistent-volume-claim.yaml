@@ -1,5 +1,5 @@
 ---
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: pg-pvc-ssd
