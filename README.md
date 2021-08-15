@@ -1,5 +1,9 @@
 ## Домашнее задание для к уроку 4 - Хранение данных и ресурсы
-#### Проверим подключение к созданному экземпляру postgres с помощью отдельного пода:
+#### Развертывание сервера PostgreSQL выполним с использованием подготовленных манифестов командой:
+```sh
+kubectl apply -f .
+```
+#### Проверим подключение к созданному экземпляру PostgreSQL с помощью отдельного пода:
 ```sh
 kubectl run -t -i --rm --image postgres:10.13 test bash
 If you don't see a command prompt, try pressing enter.
@@ -41,7 +45,7 @@ testdb=# \dt
 
 testdb=#
 ```
-#### Произведем удаление пода с сервером postgres:
+#### Произведем удаление пода с сервером PostgreSQL:
 ```sh
 k get po
 NAME                       READY   STATUS    RESTARTS   AGE
@@ -53,7 +57,7 @@ k get po
 NAME                       READY   STATUS    RESTARTS   AGE
 postgres-648555c6f-79rkt   1/1     Running   0          8s
 ```
-#### и убедимся, что в новом пересозданном поде с сервером postgres в базе ```testdb``` присутствует ранее созданная таблица ```testtable```
+#### и убедимся, что в новом пересозданном поде с сервером PostgreSQL в базе ```testdb``` присутствует ранее созданная таблица ```testtable```
 ```sh
 kubectl run -t -i --rm --image postgres:10.13 test bash
 If you don't see a command prompt, try pressing enter.
