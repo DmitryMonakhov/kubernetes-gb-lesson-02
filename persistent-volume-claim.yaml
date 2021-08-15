@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: pg-pvc-ssd
 spec:
-  storageClassName: "csi-ceph-ssd-dp1"
+  storageClassName: "csi-ceph-hdd-ms1-retain"
   accessModes:
     - ReadWriteOnce
   resources:

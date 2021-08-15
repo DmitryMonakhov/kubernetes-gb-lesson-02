@@ -31,3 +31,7 @@ spec:
         - name: pg-persistent-storage
           persistentVolumeClaim:
             claimName: pg-pvc-ssd
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
